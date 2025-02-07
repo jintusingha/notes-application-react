@@ -1,15 +1,21 @@
-import React from 'react'
+import React from "react";
+import "./notes.css";
 
-const Note = ({id, text, editHandler, deleteHandler}) => {
-  return (
-    <div className='note'>
-        <div className='note-body'>{text}</div>
-        <div className='note_footer' style={{justifyContent : "flex-end"}}>
-        <button className='note_save' onClick={() => deleteHandler(id)}>Delete</button> &nbsp;
-        <button className='note_save' onClick={() => editHandler(id, text)}>Edit</button>
+const Note = ({ id, title, description, deleteHandler, editHandler }) => {
+    return (
+        <div className="note">
+            <h3>{title}</h3>
+            <p>{description}</p>
+            <div className="note-actions">
+                <button className="edit-button" onClick={() => editHandler(id)}>
+                    Edit
+                </button>
+                <button className="delete-button" onClick={() => deleteHandler(id)}>
+                    Delete
+                </button>
+            </div>
         </div>
-    </div>
-  )
-}
+    );
+};
 
-export default Note
+export default Note;
